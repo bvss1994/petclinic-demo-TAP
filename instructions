@@ -1,0 +1,44 @@
+########################-------------Initial Setup-------------------########################
+#######----------------############
+#Create EC2 Instance for Jenkins
+#Login to EC2 Instance
+# ubuntu@<ip-address>
+
+
+#######----------------############
+#Install JAVA
+sudo su
+apt-get update -y
+apt install -y default-jdk
+java -version
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+echo $JAVA_HOME
+
+#######----------------############
+#Install Maven
+apt install -y maven
+mvn -version
+
+#######----------------############
+# Setup Jenkins
+#### Follow instruction form URL https://pkg.jenkins.io/debian-stable/
+#### Open Jenkins URL and Install Suggested Plugin
+#### Create a user
+
+#######----------------############
+#Install Docker
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+sudo usermod -aG docker ${USER}
+sudo usermod -aG docker jenkins
+
+#######----------------############
+#Configure Docker to be controlled by Jenkins
+sudo chmod 666 /var/run/docker.sock
+sudo visudo
+
+####Add below line
+jenkins ALL=(ALL) NOPASSWD: ALL
+
+sudo systemctl restart docker
+sudo systemctl restart jenkins
