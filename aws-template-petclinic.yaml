@@ -108,7 +108,6 @@ Resources:
           Port: 8081
         - Id: !Ref MyInstance2
           Port: 8081
-
 Outputs:
   ELBDNSName:
     Description: The DNSName of the load balancer
