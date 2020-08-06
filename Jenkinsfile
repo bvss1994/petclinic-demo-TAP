@@ -32,6 +32,7 @@ pipeline {
          script {
           docker.withRegistry( '', registryCredential ) {
               dockerImage.push()
+              dockerImage.push('latest')
           }
         }
       }
@@ -39,6 +40,7 @@ pipeline {
     stage ('Deploy to Dev') {
       steps{
         echo "Deploying to Dev Environment"
+        docker run -d --name=petclinic -p 8081:8080 sowmyabv123/petclinic
       }
     }
   }
