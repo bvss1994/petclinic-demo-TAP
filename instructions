@@ -42,3 +42,57 @@ jenkins ALL=(ALL) NOPASSWD: ALL
 
 sudo systemctl restart docker
 sudo systemctl restart jenkins
+
+
+
+
+########################-------------Jenkins CI Job-------------------########################
+#######----------------############
+#Create Jenkins Job
+	#Add Git URL and Jenkinsfile
+		https://github.com/prabhavagrawal/spring-petclinic.git
+	#Create a Jenkinsfile with empty stages and steps
+	#Add Build Step
+	#Add Archive Step
+	#Add Docker Image Build Step
+		#Write Docker File and check-in to GitHub
+		#Install "Docker Pipeline" Plugin in Jenkins
+		#Add DockerHub credentials in Jenkins
+		#Set Environment Variables for Jenkins Job
+	#Add Docker Push Step
+	#Add Dev Deployment Step	
+
+
+
+
+########################-------------Jenkins AWS Job-------------------########################
+#######----------------############
+#Create CloudFormation Template
+#Install AWS CLI on Server
+sudo apt install awscli
+#Create Jenkins Job
+	#Add Git URL and Jenkinsfile
+		https://github.com/prabhavagrawal/spring-petclinic.git
+	#Create a Jenkinsfile with empty stages and steps
+	#Install "CloudBees AWS Credentials" Plugin in Jenkins
+	#Add AWS credentials in Jenkins
+	AWS CloudFormation Step
+
+
+########################-------------Jenkins Deployment Job-------------------########################
+#######----------------############
+#Create Jenkins Job
+	#Add Git URL and Jenkinsfile
+		https://github.com/prabhavagrawal/spring-petclinic.git
+	#Create a Jenkinsfile with empty stages and steps
+	#Install "SSH" & "SSH Agent" Plugin in Jenkins
+	#Add SSH Credentials
+	#Add SSH Hosts
+		#Manage Jenkins -> Configure System -> "Find ssh" -> Add
+	#Add Deployment Step for Prod 1
+	#Add Deployment Step for Prod 2
+
+
+
+#If mvnw gives error
+git update-index --chmod=+x mvnw
